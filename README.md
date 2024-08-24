@@ -1,6 +1,4 @@
-Here's an elaborated GitHub repository description for an Indian freelancing website specifically for freelancers from India:
 
----
 
 ## Indian Freelancing Platform
 
@@ -52,6 +50,4 @@ We welcome contributions from the community! Whether it's fixing bugs, adding ne
 **License:**
 This project is licensed under the MIT License - see the [LICENSE](link to LICENSE) file for details.
 
----
 
-Feel free to customize the details according to your specific project setup and preferences.
