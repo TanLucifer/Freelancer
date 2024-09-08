@@ -6,6 +6,7 @@ import CategoriesCarousel from '../../components/Home/CategoriesCarousel';
 import Features from '../../components/Home/Features';
 import JobsList from '../../components/Home/JobsList';
 import SuggestedFreelancers from '../../components/Home/SuggestedFreelancers';
+import {Link} from 'react-router-dom';
 
 const Home= () => {
  
@@ -21,7 +22,7 @@ const Home= () => {
         <div className="bg-teal-700 text-white rounded-lg p-4 md:p-6 mb-6">
           <h2 className="text-xl md:text-2xl font-bold mb-2">Rise to the top of the client's list</h2>
           <p className="text-lg md:text-xl mb-4">Boosted Proposals deliver 10x more earnings on ad spend</p>
-          <button className="bg-white text-teal-700 px-4 py-2 rounded">Boost now</button>
+          <Link to='/subscription'><button className="bg-white text-teal-700 px-4 py-2 rounded">Boost now</button></Link>
         </div>
 
         {/* Full-width Categories Carousel */}

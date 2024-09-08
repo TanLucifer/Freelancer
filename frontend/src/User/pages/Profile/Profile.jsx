@@ -35,7 +35,9 @@ function ProfilePage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <main className="mt-4">
           <div className="relative">
-            <div className="w-full h-48 bg-gray-200"></div>
+            <div className="w-full h-48 bg-gray-200">
+              <img src="https://images.unsplash.com/photo-1620640585245-31bea5f56ba3?q=80&w=2333&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className='w-full h-48 object-cover rounded-lg shadow-md' />
+            </div>
             <div className="absolute bottom-0 left-4 transform translate-y-1/2">
               <div className="w-24 h-24 bg-gray-300 rounded-full border-4 border-white flex items-center justify-center">
               <Link to='/profile'><img src={profile} alt="User profile" className="rounded-full" /></Link>
