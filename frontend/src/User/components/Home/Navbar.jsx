@@ -9,7 +9,7 @@ const Navbar = () => {
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex items-center space-x-4">
           <Link to='/'>
-            <img src={logo} alt="SkillMitraX Logo" className="text-xl sm:text-2xl font-bold text-green-500"style={{height:'20px'}} />
+            <img src={logo} alt="SkillMitraX Logo" className="text-xl sm:text-2xl font-bold text-green-500"style={{height:'60px'}} />
           </Link>
           <nav className="hidden md:flex space-x-4">
             <NavLink to="/find-work" className="text-gray-600 hover:text-green-500" activeClassName="text-green-500">Find work</NavLink>
