@@ -9,6 +9,7 @@ import Auth from './User/pages/Auth/Auth';
 import FAQ from './User/pages/FAQ/FAQ';
 import Messenger from './User/pages/Messenger/Messenger';
 import UserDashboard from './User/pages/UserDashboard/UserDashboard';
+import Pop from './User/components/AfterSignup/Popups';
 const App = () => {
   return (
     <>
@@ -23,6 +24,7 @@ const App = () => {
           <Route path='faq' element={<FAQ/>} /> 
           <Route path='messages' element={<Messenger/>} /> 
           <Route path='userDashboard' element={<UserDashboard/>} /> 
+          <Route path='pop' element={<Pop/>} /> 
           
         </Route>
 
