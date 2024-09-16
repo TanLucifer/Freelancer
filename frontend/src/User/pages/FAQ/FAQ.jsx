@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 const faqData = [
   {
@@ -35,24 +36,33 @@ const FAQPage = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Frequently Asked Questions</h1>
-      <div className="space-y-4">
-        {faqData.map((faq, index) => (
-          <div key={index} className="border border-gray-200 rounded-lg">
-            <button 
-              className="w-full px-4 py-3 text-left bg-gray-100 hover:bg-gray-200 focus:outline-none focus:bg-gray-200"
-              onClick={() => toggleQuestion(index)}
-            >
-              <h2 className="text-xl font-semibold">{faq.question}</h2>
-            </button>
-            {openIndex === index && (
-              <div className="px-4 py-3">
-                <p className="text-gray-700">{faq.answer}</p>
+    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 min-h-screen py-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <h1 className="text-4xl font-bold text-center mb-12 text-indigo-800">Frequently Asked Questions</h1>
+        <div className="space-y-6">
+          {faqData.map((faq, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out">
+              <button 
+                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                onClick={() => toggleQuestion(index)}
+              >
+                <h2 className="text-xl font-semibold text-gray-800">{faq.question}</h2>
+                {openIndex === index ? (
+                  <ChevronUp className="w-6 h-6 text-indigo-600" />
+                ) : (
+                  <ChevronDown className="w-6 h-6 text-indigo-600" />
+                )}
+              </button>
+              <div 
+                className={`px-6 py-4 bg-indigo-50 transition-all duration-300 ease-in-out ${
+                  openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
               </div>
-            )}
-          </div>
-        ))}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
