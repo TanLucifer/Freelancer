@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search } from 'lucide-react';
 
 const faqData = [
   {
@@ -30,31 +30,50 @@ const faqData = [
 
 const FAQPage = () => {
   const [openIndex, setOpenIndex] = useState(null);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const toggleQuestion = (index) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const filteredFAQs = faqData.filter(faq =>
+    faq.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 min-h-screen py-12">
+    <div className="bg-gradient-to-br from-green-50 to-blue-50 min-h-screen py-12">
       <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-4xl font-bold text-center mb-12 text-indigo-800">Frequently Asked Questions</h1>
+        <h1 className="text-5xl font-bold text-center mb-8 text-green-700">Frequently Asked Questions</h1>
+        <p className="text-center text-gray-600 mb-12">Find answers to common questions about SkillMitraX</p>
+        
+        <div className="relative mb-8">
+          <input
+            type="text"
+            placeholder="Search FAQs..."
+            className="w-full px-4 py-3 pl-12 rounded-full border-2 border-green-300 focus:outline-none focus:border-green-500 transition duration-300"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
+        </div>
+
         <div className="space-y-6">
-          {faqData.map((faq, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 ease-in-out">
+          {filteredFAQs.map((faq, index) => (
+            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl">
               <button 
-                className="w-full px-6 py-4 text-left flex justify-between items-center focus:outline-none"
+                className="w-full px-6 py-5 text-left flex justify-between items-center focus:outline-none"
                 onClick={() => toggleQuestion(index)}
               >
                 <h2 className="text-xl font-semibold text-gray-800">{faq.question}</h2>
                 {openIndex === index ? (
-                  <ChevronUp className="w-6 h-6 text-indigo-600" />
+                  <ChevronUp className="w-6 h-6 text-green-600" />
                 ) : (
-                  <ChevronDown className="w-6 h-6 text-indigo-600" />
+                  <ChevronDown className="w-6 h-6 text-green-600" />
                 )}
               </button>
               <div 
-                className={`px-6 py-4 bg-indigo-50 transition-all duration-300 ease-in-out ${
+                className={`px-6 py-4 bg-green-50 transition-all duration-300 ease-in-out ${
                   openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
                 }`}
               >
@@ -63,6 +82,10 @@ const FAQPage = () => {
             </div>
           ))}
         </div>
+
+        {filteredFAQs.length === 0 && (
+          <p className="text-center text-gray-600 mt-8">No matching FAQs found. Please try a different search term.</p>
+        )}
       </div>
     </div>
   );
